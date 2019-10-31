@@ -1,3 +1,5 @@
+#pragma once
+#ifndef ListNode
 #include <string>
 
 using std::string;
@@ -14,3 +16,5 @@ class ListNode {
         int data;
         ListNode *next;
 };
+
+#endif
