@@ -9,12 +9,14 @@ MyStack::MyStack() {
 
 void MyStack::pop() {
     topNode = topNode->get_Next();
+    stackSize--;
 }
 
 void MyStack::push(int newItem) {
     ListNode *p;
     p = new ListNode(newItem, topNode);
     topNode = p;
+    stackSize++;
 }
 
 bool MyStack::empty() {
@@ -23,6 +25,10 @@ bool MyStack::empty() {
 
 int MyStack::top() {
     return topNode->getData();
+}
+
+int MyStack::size() {
+    return stackSize;
 }
 
 #endif
