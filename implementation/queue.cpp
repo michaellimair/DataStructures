@@ -24,13 +24,15 @@ void Queue::push_back(int newData) {
         rear->set_Next(p);
     }
     rear = p;
+    queueSize++;
 }
 
 int Queue::top() {return front->getData();}
 
 void Queue::pop() {
     // pop the first element which arrives
-    front->set_Next(front->get_Next());
+    front = front->get_Next();
     if (front == NULL)
         rear = NULL;
+    queueSize--;
 }
