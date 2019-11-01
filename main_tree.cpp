@@ -5,16 +5,17 @@ using std::cout;
 using std::endl;
 
 int main() {
-    BTree *btr = new BTree();
+    BTree<char> *btr = new BTree<char>();
 
-    btr->InsertNode('E');
-    btr->InsertNode('A');
-    btr->InsertNode('H');
-    btr->InsertNode('F');
-    btr->InsertNode('I');
+    btr->Insert('E');
+    btr->Insert('A');
+    btr->Insert('H');
+    btr->Insert('F');
+    btr->Insert('I');
 
     cout << "Height: " << btr->height(btr->getRoot()) << endl;
     cout << "Count Leaf: " << btr->count_leaf(btr->getRoot()) << endl;
+    cout << "Count Nodes: " << btr->count_nodes() << endl;
 
     cout << "PreorderTraversal:\n";
     btr->PreorderTraversal();
