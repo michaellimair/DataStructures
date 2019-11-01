@@ -1,21 +1,22 @@
 #include "TreeNode.cpp"
 
+template <class T>
 class BTree {
     private:
-        TreeNode* root;
+        TreeNode<T>* root;
     public:
         BTree();
-        int height(TreeNode*);
+        int height(TreeNode<T>*);
         bool compare(BTree);
-        int count_leaf(TreeNode*);
-        void InsertNode(char);
-        void InsertNode(char, TreeNode*);
+        int count_leaf(TreeNode<T>*);
+        void InsertNode(T const &);
+        void InsertNode(T const &, TreeNode<T>*);
         void PreorderTraversal();
-        void PreorderHelper(TreeNode*);
+        void PreorderHelper(TreeNode<T>*);
         void InorderTraversal();
-        void InorderHelper(TreeNode*);
+        void InorderHelper(TreeNode<T>*);
         void PostorderTraversal();
-        void PostorderHelper(TreeNode*);
+        void PostorderHelper(TreeNode<T>*);
         bool equal(BTree*);
-        TreeNode *getRoot();
+        TreeNode<T> *getRoot();
 };

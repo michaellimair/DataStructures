@@ -5,11 +5,13 @@
 using std::cout;
 using std::endl;
 
-BTree::BTree() {
+template <class T>
+BTree<T>::BTree() {
     root = NULL;
 }
 
-void BTree::InsertNode(char data) {
+template <class T>
+void BTree<T>::InsertNode(T const &data) {
     if (root != NULL) {
         InsertNode(data, root);
     } else {
@@ -18,7 +20,8 @@ void BTree::InsertNode(char data) {
     }
 }
 
-void BTree::InsertNode(char data, TreeNode *p) {
+template <class T>
+void BTree<T>::InsertNode(T const &data, TreeNode<T> *p) {
     // BTree with content
     if (data < p->getData()) {
         if (p->getLeft() != NULL) {
@@ -39,7 +42,8 @@ void BTree::InsertNode(char data, TreeNode *p) {
     }
 }
 
-int BTree::height(TreeNode *parent) {
+template <class T>
+int BTree<T>::height(TreeNode<T> *parent) {
     int HeightOfLeftSubBTree, HeightOfRightSubBTree;
     if (parent == NULL) return 0; // empty tree
     if ((parent->getLeft() == NULL) && (parent->getRight() == NULL)) return 0; // tree with parent only
@@ -53,7 +57,8 @@ int BTree::height(TreeNode *parent) {
     }
 }
 
-int BTree::count_leaf(TreeNode *p) {
+template <class T>
+int BTree<T>::count_leaf(TreeNode<T> *p) {
     if (p == NULL) {
         return 0;
     } else if (p->getLeft() == NULL && p->getRight() == NULL) {
@@ -63,15 +68,18 @@ int BTree::count_leaf(TreeNode *p) {
     }
 }
 
-TreeNode *BTree::getRoot() {
+template <class T>
+TreeNode<T> *BTree<T>::getRoot() {
     return root;
 }
 
-bool BTree::equal(BTree *T) {
+template <class T>
+bool BTree<T>::equal(BTree *T) {
     return root->equal(T->getRoot());
 }
 
-void BTree::PreorderHelper(TreeNode *node) {
+template <class T>
+void BTree<T>::PreorderHelper(TreeNode<T> *node) {
     if (node != NULL) {
         cout << node->getData() << ' ';
         PreorderHelper(node->getLeft());
@@ -79,11 +87,13 @@ void BTree::PreorderHelper(TreeNode *node) {
     }
 }
 
-void BTree::PreorderTraversal() {
+template <class T>
+void BTree<T>::PreorderTraversal() {
     PreorderHelper(root);
 }
 
-void BTree::InorderHelper(TreeNode *node) {
+template <class T>
+void BTree<T>::InorderHelper(TreeNode<T> *node) {
     if (node != NULL) {
         InorderHelper(node->getLeft());
         cout << node->getData() << ' ';
@@ -91,11 +101,13 @@ void BTree::InorderHelper(TreeNode *node) {
     }
 }
 
-void BTree::InorderTraversal() {
+template <class T>
+void BTree<T>::InorderTraversal() {
     InorderHelper(root);
 }
 
-void BTree::PostorderHelper(TreeNode *node) {
+template <class T>
+void BTree<T>::PostorderHelper(TreeNode<T> *node) {
     if (node != NULL) {
         PostorderHelper(node->getLeft());
         PostorderHelper(node->getRight());
@@ -103,6 +115,7 @@ void BTree::PostorderHelper(TreeNode *node) {
     }
 }
 
-void BTree::PostorderTraversal() {
+template <class T>
+void BTree<T>::PostorderTraversal() {
     PostorderHelper(root);
 }
