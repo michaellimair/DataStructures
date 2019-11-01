@@ -8,16 +8,18 @@ using std::endl;
 template <class T>
 BTree<T>::BTree() {
     root = NULL;
+    numberOfNodes = 0;
 }
 
 template <class T>
-void BTree<T>::InsertNode(T const &data) {
+void BTree<T>::Insert(T const &data) {
     if (root != NULL) {
         InsertNode(data, root);
     } else {
-        root = new TreeNode;
+        root = new TreeNode<T>();
         root->insert(data);
     }
+    numberOfNodes++;
 }
 
 template <class T>
@@ -69,13 +71,18 @@ int BTree<T>::count_leaf(TreeNode<T> *p) {
 }
 
 template <class T>
+int BTree<T>::count_nodes() {
+    return numberOfNodes;
+}
+
+template <class T>
 TreeNode<T> *BTree<T>::getRoot() {
     return root;
 }
 
 template <class T>
-bool BTree<T>::equal(BTree *T) {
-    return root->equal(T->getRoot());
+bool BTree<T>::equal(BTree<T> *otherTree) {
+    return root->equal(otherTree->getRoot());
 }
 
 template <class T>

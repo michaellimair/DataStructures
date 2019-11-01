@@ -4,12 +4,13 @@ template <class T>
 class BTree {
     private:
         TreeNode<T>* root;
+        int numberOfNodes;
     public:
         BTree();
         int height(TreeNode<T>*);
-        bool compare(BTree);
         int count_leaf(TreeNode<T>*);
-        void InsertNode(T const &);
+        int count_nodes();
+        void Insert(T const &);
         void InsertNode(T const &, TreeNode<T>*);
         void PreorderTraversal();
         void PreorderHelper(TreeNode<T>*);
@@ -17,6 +18,6 @@ class BTree {
         void InorderHelper(TreeNode<T>*);
         void PostorderTraversal();
         void PostorderHelper(TreeNode<T>*);
-        bool equal(BTree*);
+        bool equal(BTree<T>*);
         TreeNode<T> *getRoot();
 };
