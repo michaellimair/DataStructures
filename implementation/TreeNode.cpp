@@ -10,13 +10,13 @@ TreeNode<T>::TreeNode() {
 
 template <class T>
 void TreeNode<T>::setLeft(T const &dataL) {
-    left = new TreeNode();
+    left = new TreeNode<T>();
     left->insert(dataL);
 }
 
 template <class T>
 void TreeNode<T>::setRight(T const &dataR) {
-    right = new TreeNode();
+    right = new TreeNode<T>();
     right->insert(dataR);
 }
 
