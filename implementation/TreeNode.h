@@ -1,15 +1,16 @@
+template <class T>
 class TreeNode {
     private:
-        char info;
+        T info;
         TreeNode *left;
         TreeNode *right;
     public:
         TreeNode(); // create a new left child of a given node
-        void setLeft(char);
-        void setRight(char);
+        void setLeft(T const &);
+        void setRight(T const &);
         TreeNode *getLeft();
         TreeNode *getRight();
-        void insert(char);
-        char getData();
+        void insert(T const &);
+        T getData();
         bool equal(TreeNode*);
 };

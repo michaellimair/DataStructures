@@ -2,39 +2,47 @@
 #include <cstdlib>
 #include <iostream>
 
-TreeNode::TreeNode() {
+template <class T>
+TreeNode<T>::TreeNode() {
     left = NULL;
     right = NULL;
 }
 
-void TreeNode::setLeft(char dataL) {
+template <class T>
+void TreeNode<T>::setLeft(T const &dataL) {
     left = new TreeNode();
     left->insert(dataL);
 }
 
-void TreeNode::setRight(char dataR) {
+template <class T>
+void TreeNode<T>::setRight(T const &dataR) {
     right = new TreeNode();
     right->insert(dataR);
 }
 
-TreeNode *TreeNode::getLeft() {
+template <class T>
+TreeNode<T> *TreeNode<T>::getLeft() {
     return left;
 }
 
-TreeNode *TreeNode::getRight() {
+template <class T>
+TreeNode<T> *TreeNode<T>::getRight() {
     return right;
 }
 
-void TreeNode::insert(char data) {
+template <class T>
+void TreeNode<T>::insert(T const &data) {
     this->info = data;
     // std::cout << getData();
 }
 
-char TreeNode::getData() {
+template <class T>
+T TreeNode<T>::getData() {
     return info;
 }
 
-bool TreeNode::equal(TreeNode* TN) {
+template <class T>
+bool TreeNode<T>::equal(TreeNode* TN) {
     if (this == NULL && TN == NULL) {
         return true;
     }
